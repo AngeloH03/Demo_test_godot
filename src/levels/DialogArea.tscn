@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1r2htlx1qs"]
+
+[ext_resource type="Script" path="res://src/levels/DialogArea.gd" id="1_0u2fb"]
+
+[sub_resource type="SystemFont" id="SystemFont_gkd3g"]
+font_names = PackedStringArray("Unispace")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_uvtvk"]
+font = SubResource("SystemFont_gkd3g")
+font_size = 7
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DialogArea" type="Area2D"]
+process_mode = 3
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_0u2fb")
+
+[node name="InteractionLabel" type="Label" parent="."]
+visibility_layer = 2
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -31.0
+offset_right = 20.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_uvtvk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="area_shape_exited" from="." to="." method="_on_area_shape_exited"]

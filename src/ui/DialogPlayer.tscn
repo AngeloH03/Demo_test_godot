@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://cjlf0qyosqaba"]
+
+[ext_resource type="Script" path="res://src/ui/DialogPlayer.gd" id="1_ufed7"]
+[ext_resource type="Texture2D" uid="uid://35wlafuh5rtf" path="res://assets/ui/Dialog_Frame.png" id="2_byqhy"]
+[ext_resource type="Texture2D" uid="uid://bqf0c4hd1hot" path="res://assets/ui/Dialog_Arrow.png" id="3_htge2"]
+
+[sub_resource type="SystemFont" id="SystemFont_d02a1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o2aux"]
+font = SubResource("SystemFont_d02a1")
+font_size = 10
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00rec"]
+atlas = ExtResource("3_htge2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfbye"]
+atlas = ExtResource("3_htge2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkgdx"]
+atlas = ExtResource("3_htge2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cudra"]
+atlas = ExtResource("3_htge2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qd8l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00rec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfbye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkgdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cudra")
+}],
+"loop": true,
+"name": &"arrow",
+"speed": 5.0
+}]
+
+[node name="DialogPlayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ufed7")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
+texture_filter = 1
+offset_top = 454.0
+offset_right = 40.0
+offset_bottom = 494.0
+scale = Vector2(28.7973, 4.83698)
+texture = ExtResource("2_byqhy")
+region_rect = Rect2(0.846146, 0, 30.3407, 32)
+
+[node name="TextLabel" type="Label" parent="."]
+z_index = 2
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -560.0
+offset_top = -180.0
+offset_right = -355.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4.78875, 3.24148)
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_o2aux")
+autowrap_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(1073, 580)
+scale = Vector2(4.22051, 4.22051)
+sprite_frames = SubResource("SpriteFrames_0qd8l")
+animation = &"arrow"
+autoplay = "arrow"
+frame_progress = 0.330856

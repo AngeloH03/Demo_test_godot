@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://c1dmb80qiito"]
+
+[ext_resource type="Texture2D" uid="uid://ixgu26omdy8b" path="res://assets/characters/robot_arm_guy/Idle (32x32).png" id="1_3gmkv"]
+[ext_resource type="PackedScene" uid="uid://d1r2htlx1qs" path="res://src/levels/DialogArea.tscn" id="2_suyvc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qnfy"]
+atlas = ExtResource("1_3gmkv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck7qi"]
+atlas = ExtResource("1_3gmkv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bjw4"]
+atlas = ExtResource("1_3gmkv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyg2q"]
+atlas = ExtResource("1_3gmkv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lviem"]
+atlas = ExtResource("1_3gmkv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olwm0"]
+atlas = ExtResource("1_3gmkv")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu261"]
+atlas = ExtResource("1_3gmkv")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm13x"]
+atlas = ExtResource("1_3gmkv")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5rhp7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qnfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck7qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bjw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyg2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lviem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olwm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu261")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fm13x")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vfp3h"]
+radius = 25.045
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+z_index = -1
+texture_filter = 1
+position = Vector2(995, 625)
+sprite_frames = SubResource("SpriteFrames_5rhp7")
+animation = &"Idle"
+autoplay = "Idle"
+flip_h = true
+
+[node name="DialogArea" parent="." instance=ExtResource("2_suyvc")]
+dialog_key = "npc"
+
+[node name="CollisionShape2D" parent="DialogArea" index="1"]
+position = Vector2(-1, 1.5)
+shape = SubResource("CircleShape2D_vfp3h")
+
+[editable path="DialogArea"]
